@@ -5,10 +5,15 @@ const Signup = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log(username, email, password)
+   }
+
 	return (
 		<div>
 			<h2>Sign Up</h2>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<label>
 					<input
 						type="text"
@@ -33,6 +38,7 @@ const Signup = () => {
 						required
 					/>
 				</label>
+            <button>Add</button>
 			</form>
 		</div>
 	);
