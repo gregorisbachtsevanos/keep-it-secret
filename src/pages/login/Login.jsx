@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
-export default Login
+	return (
+		<div>
+			<h2>Login</h2>
+			<form>
+				<label>
+					<input
+						type="email"
+						onChange={(e) => setEmail(e.target.value)}
+						value={email}
+						required
+					/>
+				</label>
+				<label>
+					<input
+						type="password"
+						onChange={(e) => setPassword(e.target.value)}
+						value={password}
+						required
+					/>
+				</label>
+			</form>
+		</div>
+	);
+};
+
+export default Login;
