@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { projectAuth } from '../../firebase/config'
+import { useSignup } from '../../hooks/useSignup';
 
 const Signup = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
-	const  pro
+	const { signup } = useSignup()
 
 	const handleSubmit = (e) => {
       e.preventDefault()
-      console.log(username, email, password)
+      signup(email, password, username)
    }
 
 	return (
