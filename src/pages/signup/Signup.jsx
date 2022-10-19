@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { projectAuth } from '../../firebase/config'
 
 const Signup = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const  pro
 
 	const handleSubmit = (e) => {
       e.preventDefault()
