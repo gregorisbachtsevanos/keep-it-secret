@@ -9,11 +9,10 @@ import Signup from './pages/signup/Signup';
 
 function App() {
 	const { user } = useAuthContext();
-	console.log(user)
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<NavBar />
+				<NavBar user={user}/>
 				<Routes>
 					<Route path="/" exac element={<Home user={user}/>} />
 					<Route path="/login" element={<Login />} />

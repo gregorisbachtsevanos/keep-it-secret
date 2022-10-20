@@ -7,6 +7,8 @@ export const authReducer = (state, action) => {
 	switch (action.type) {
 		case 'LOGIN':
 			return { ...state, user: action.payload };
+		case 'AUTH_IS_READY':
+			return { ...state, user: action.payload, authIsReady: true };
 		case 'LOGOUT':
 			return { ...state, user: null };
 		default:
@@ -17,7 +19,17 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(authReducer, {
 		user: null,
+		authIsReady: false,
 	});
+
+	useEffect(() => {
+		const unsub = projectAuth.onAuthStateChanged((user) => {
+			dispatch({ type: 'AUTH_IS_READY', payload: user });
+			unsub();
+		});
+	}, []);
+
+	console.log(state);
 
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>

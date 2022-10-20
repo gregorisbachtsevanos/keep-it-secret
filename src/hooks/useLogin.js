@@ -8,32 +8,35 @@ export const useLogin = () => {
 	const [isCancelled, setIsCancelled] = useState(false);
 	const { dispatch } = useAuthContext();
 
+	const login = async (email, password) => {
+		setIsPending(true);
+		setError(null);
 
-   const login = async (email, password) => {
-      setIsPending(true)
-      setError(null)
+		try {
+			const res = await projectAuth.signInWithEmailAndPassword(
+				email,
+				password
+			);
+			// console.log(res.user)
 
-      try {
-         const res = await projectAuth.signInWithEmailAndPassword(email, password)
-         console.log(res.user)
+			if (!isCancelled) {
+				setIsPending(false);
+				setError(null);
+			}
 
-         if (!isCancelled) {
-            setIsPending(false);
-            setError(null);
-         }
+			dispatch({ type: 'LOGIN', payload: res.user });
+		} catch (error) {
+			if (!isCancelled) {
+				setIsPending(false);
+				setError(error.message);
+				console.log(error.message);
+			}
+		}
+	};
 
-      } catch (error) {
-         if (!isCancelled) {
-            setIsPending(false);
-            setError(error.message);
-            console.log(error.message);
-         }
-      }
-   }
-   
-   useEffect(() => {
-      return () => setIsCancelled(true)
-   }, [])
+	useEffect(() => {
+		return () => setIsCancelled(true);
+	}, []);
 
-   return { login, error, isPending }
+	return { login, error, isPending };
 };

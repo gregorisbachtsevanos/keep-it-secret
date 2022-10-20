@@ -1,10 +1,10 @@
-import { AuthContext } from '../context/AuthContext'
-import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from 'react';
 
 export const useAuthContext = () => {
-   const context = useContext(AuthContext)
+	const context = useContext(AuthContext);
 
-   if(!context) throw new Error('useAuthContext not defined')
+	if (!context) throw new Error('useAuthContext not defined');
 
-   return context
-}
+	return context;
+};
