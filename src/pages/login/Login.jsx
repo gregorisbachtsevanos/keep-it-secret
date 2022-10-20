@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useLogin } from '../../hooks/useLogin';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const { login } = useLogin();
 
 	const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log(email, password)
-   }
+		e.preventDefault();
+		login(email, password);
+	};
 
 	return (
 		<div>
@@ -29,7 +31,7 @@ const Login = () => {
 						required
 					/>
 				</label>
-            <button>Add</button>
+				<button>Add</button>
 			</form>
 		</div>
 	);

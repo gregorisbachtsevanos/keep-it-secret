@@ -5,12 +5,12 @@ const Signup = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const { signup } = useSignup()
+	const { signup } = useSignup();
 
 	const handleSubmit = (e) => {
-      e.preventDefault()
-      signup(email, password, username)
-   }
+		e.preventDefault();
+		signup(email, password, username);
+	};
 
 	return (
 		<div>
@@ -40,7 +40,7 @@ const Signup = () => {
 						required
 					/>
 				</label>
-            <button>Add</button>
+				<button>Add</button>
 			</form>
 		</div>
 	);
