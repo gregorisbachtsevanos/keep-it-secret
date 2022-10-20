@@ -4,13 +4,12 @@ import { useLogin } from '../../hooks/useLogin';
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const { login } = useLogin();
+	const { login, error } = useLogin();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		login(email, password);
 	};
-
 	return (
 		<div>
 			<h2>Login</h2>
@@ -31,8 +30,9 @@ const Login = () => {
 						required
 					/>
 				</label>
-				<button>Add</button>
+				<button>Login</button>
 			</form>
+			{error && <p>{error}</p>}
 		</div>
 	);
 };

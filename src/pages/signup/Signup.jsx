@@ -5,7 +5,7 @@ const Signup = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const { signup } = useSignup();
+	const { signup, error } = useSignup();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -40,8 +40,9 @@ const Signup = () => {
 						required
 					/>
 				</label>
-				<button>Add</button>
+				<button>Sign Up</button>
 			</form>
+			{error && <p>{error}</p>}
 		</div>
 	);
 };

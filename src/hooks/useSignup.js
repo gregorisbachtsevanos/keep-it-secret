@@ -28,7 +28,6 @@ export const useSignup = () => {
 				setError(null);
 				setIsPending(false);
 			}
-			console.log(isPending);
 		} catch (error) {
 			if (!isCancelled) {
 				console.log(error);
@@ -38,9 +37,9 @@ export const useSignup = () => {
 		}
 	};
 
-	useEffect(() => {
-		return () => setIsCancelled(true);
-	}, []);
+	// useEffect(() => {
+	// 	return () => setIsCancelled(true);
+	// }, []);
 
 	return { signup, error, isPending };
 };
