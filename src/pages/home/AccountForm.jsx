@@ -1,35 +1,37 @@
 import React, { useState } from 'react';
+import { useFirestore } from '../../hooks/useFirestore';
 
 export const AccountForm = () => {
-   const [addAccount, setAddAccount] = useState('')
-   const [addPassword, setAddPassword] = useState('')
+	const [name, setName] = useState('');
+	const [password, setPassword] = useState('');
+	const { addDocument } = useFirestore('Accounts');
 
-   const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log(addAccount, addPassword)
-   }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		addDocument({name, password});
+	};
 
 	return (
 		<div>
-         <h2>Add New Account</h2>
+			<h2>Add New Account</h2>
 			<form onSubmit={handleSubmit}>
 				<label>
 					<input
 						type="email"
-						onChange={(e) => setAddAccount(e.target.value)}
-						value={addAccount}
+						onChange={(e) => setName(e.target.value)}
+						value={name}
 						required
 					/>
 				</label>
 				<label>
 					<input
 						type="text"
-						onChange={(e) => setAddPassword(e.target.value)}
-						value={addPassword}
+						onChange={(e) => setPassword(e.target.value)}
+						value={password}
 						required
 					/>
 				</label>
-            <button>Add</button>
+				<button>Add</button>
 			</form>
 		</div>
 	);
