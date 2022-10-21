@@ -31,6 +31,13 @@ const firestoreReducer = (state, action) => {
 				error: null,
 				success: true,
 			};
+		case 'UPDATE_DOCUMENT':
+			return {
+				documents: action.payload,
+				isPending: false,
+				error: null,
+				success: true,
+			};
 		case 'ERROR':
 			return {
 				documents: null,
@@ -62,6 +69,20 @@ export const useFirestore = (collection) => {
 			const addedDocument = await ref.add({ ...doc, createdAt });
 			dispatchAction({ type: 'ADD_DOCUMENT', payload: addedDocument });
 			console.log(addedDocument);
+		} catch (error) {
+			dispatchAction({ type: 'ERROR', payload: error.message });
+			console.log(error.message);
+		}
+	};
+
+	const updateDocument = async (id, doc) => {
+		dispatch({ type: 'IS_PENDING' });
+		try {
+			const updatedAt = timestamp.fromDate(new Date());
+			const updatedDocument = await ref
+				.doc(id)
+				.update({ ...doc, updatedAt });
+			dispatchAction({ type: 'UPDATE_DOCUMENT', doc: updatedDocument });
 		} catch (error) {
 			dispatchAction({ type: 'ERROR', payload: error.message });
 			console.log(error.message);
