@@ -76,6 +76,7 @@ export const useFirestore = (collection) => {
 	};
 
 	const updateDocument = async (id, doc) => {
+		// return console.log(id, doc)
 		dispatch({ type: 'IS_PENDING' });
 		try {
 			const updatedAt = timestamp.fromDate(new Date());
@@ -101,5 +102,5 @@ export const useFirestore = (collection) => {
 		}
 	};
 
-	return { addDocument, deleteDocument, ref };
+	return { addDocument, updateDocument, deleteDocument, ref };
 };
