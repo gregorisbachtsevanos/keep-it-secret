@@ -3,15 +3,15 @@ import { useCollection } from '../../hooks/useCollection';
 import { useFirestore } from '../../hooks/useFirestore';
 
 const AccountList = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+	const [name, setName] = useState('');
+	const [password, setPassword] = useState('');
 	const { accounts } = useCollection('Accounts');
 	const { deleteDocument, updateDocument } = useFirestore('Accounts');
 
-  const handleSubmit = (e, id) => {
-    e.preventDefault();
-    updateDocument(id, {email, password})
-  }
+	const handleSubmit = (e, id) => {
+		e.preventDefault();
+		updateDocument(id, { name, password });
+	};
 
 	const handleEvent = (id) => {
 		deleteDocument(id);
@@ -25,28 +25,27 @@ const AccountList = () => {
 						<h4>
 							<span>{account.name} </span>
 							<span>{account.password}</span>
-							<span>{account.id}</span>
 						</h4>
 						<button onClick={() => handleEvent(account.id)}>x</button>
 
-						<form onSubmit={(e) => handleSubmit(e,account.id)}>
+						<form onSubmit={(e) => handleSubmit(e, account.id)}>
 							<label>
 								<input
-                  type="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  required
-                />
+									type="email"
+									onChange={(e) => setName(e.target.value)}
+									value={name}
+									required
+								/>
 							</label>
 							<label>
 								<input
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  required
-                />
+									type="password"
+									onChange={(e) => setPassword(e.target.value)}
+									value={password}
+									required
+								/>
 							</label>
-              <button>Update</button>
+							<button>Update</button>
 						</form>
 					</div>
 				);
