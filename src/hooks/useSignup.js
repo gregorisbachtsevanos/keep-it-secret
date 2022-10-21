@@ -37,9 +37,10 @@ export const useSignup = () => {
 		}
 	};
 
-	// useEffect(() => {
-	// 	return () => setIsCancelled(true);
-	// }, []);
+	// ! CLean up function does not work the way it supposed to
+	//* useEffect(() => {
+	//* 	return () => setIsCancelled(true);
+	//* }, []);
 
 	return { signup, error, isPending };
 };

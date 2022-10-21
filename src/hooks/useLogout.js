@@ -27,9 +27,10 @@ export const useLogout = () => {
 		}
 	};
 
-   useEffect(() => {
-      return () => setIsCancelled(true)
-   }, [])
+	// ! CLean up function does not work the way it supposed to
+	//* useEffect(() => {
+	//* 	return () => setIsCancelled(true);
+	//* }, []);
 
 	return { logout, error, isPending };
 };

@@ -17,12 +17,12 @@ export const useLogin = () => {
 				email,
 				password
 			);
-			
+
 			if (!isCancelled) {
 				setIsPending(false);
 				setError(null);
 			}
-			
+
 			dispatch({ type: 'LOGIN', payload: res.user });
 		} catch (error) {
 			if (!isCancelled) {
@@ -33,9 +33,10 @@ export const useLogin = () => {
 		}
 	};
 
-	// useEffect(() => {
-	// 	return () => setIsCancelled(true);
-	// }, []);
+	// ! CLean up function does not work the way it supposed to
+	//* useEffect(() => {
+	//* 	return () => setIsCancelled(true);
+	//* }, []);
 
 	return { login, error, isPending };
 };
