@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 
+import { Navbar, Button	 } from 'react-bootstrap';
+
 // import styles from './NavBar.module.css';
 
 const NavBar = ({ user }) => {
 	const { logout } = useLogout();
 
 	return (
-		<nav>
+		<Navbar>
 			<ul>
 				{user ? (
 					<li>
@@ -26,11 +28,11 @@ const NavBar = ({ user }) => {
 				)}
 				{user && (
 					<li>
-						<button onClick={logout}>Logout</button>
+						<Button onClick={logout}>Logout</Button>
 					</li>
 				)}
 			</ul>
-		</nav>
+		</Navbar>
 	);
 };
 

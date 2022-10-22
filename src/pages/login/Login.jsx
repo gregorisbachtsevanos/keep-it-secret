@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import 'bulma/css/bulma.min.css';
-import { Form, Button, Container, Heading } from 'react-bulma-components';
+
+import { Container, Form, Button } from 'react-bootstrap';
 
 import { useLogin } from '../../hooks/useLogin';
 
@@ -25,10 +25,10 @@ const Login = () => {
 			widescreen={{ display: 'inline' }}
 			className={styles.container}
 		>
-			<Heading>Login</Heading>
-			<Form.Field onSubmit={handleSubmit}>
+			<h2>Login</h2>
+			<Form onSubmit={handleSubmit}>
 				<Form.Label>
-					<Form.Input
+					<Form.Control
 						type="email"
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
@@ -36,7 +36,7 @@ const Login = () => {
 					/>
 				</Form.Label>
 				<Form.Label>
-					<Form.Input
+					<Form.Control
 						type="password"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
@@ -44,7 +44,7 @@ const Login = () => {
 					/>
 				</Form.Label>
 				<Button>Login</Button>
-			</Form.Field>
+			</Form>
 			{error && <p>{error}</p>}
 		</Container>
 	);

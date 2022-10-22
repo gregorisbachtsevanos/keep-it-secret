@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import 'bulma/css/bulma.min.css';
-import { Form, Button } from 'react-bulma-components';
+import { Form, Button } from 'react-bootstrap';
 
 import { useCollection } from '../../hooks/useCollection';
 import { useFirestore } from '../../hooks/useFirestore';

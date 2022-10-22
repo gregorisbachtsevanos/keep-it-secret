@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import 'bulma/css/bulma.min.css';
-import { Form, Button, Container, Heading } from 'react-bulma-components';
+import { Form, Button, Container } from 'react-bootstrap';
 
 import { useSignup } from '../../hooks/useSignup';
 import styles from './signup.module.css';
@@ -26,10 +25,10 @@ const Signup = () => {
 			widescreen={{ display: 'inline' }}
 			className={styles.container}
 		>
-			<Heading>Sign Up</Heading>
-			<Form.Field onSubmit={handleSubmit}>
+			<h2>Sign Up</h2>
+			<Form onSubmit={handleSubmit}>
 				<Form.Label>
-					<Form.Input
+					<Form.Control
 						type="text"
 						onChange={(e) => setUsername(e.target.value)}
 						value={username}
@@ -37,7 +36,7 @@ const Signup = () => {
 					/>
 				</Form.Label>
 				<Form.Label>
-					<Form.Input
+					<Form.Control
 						type="email"
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
@@ -45,7 +44,7 @@ const Signup = () => {
 					/>
 				</Form.Label>
 				<Form.Label>
-					<Form.Input
+					<Form.Control
 						type="password"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
@@ -53,7 +52,7 @@ const Signup = () => {
 					/>
 				</Form.Label>
 				<Button>Sign Up</Button>
-			</Form.Field>
+			</Form>
 			{error && <p>{error}</p>}
 		</Container>
 	);
