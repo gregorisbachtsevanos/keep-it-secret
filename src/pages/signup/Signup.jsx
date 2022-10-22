@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Button, Form, Container } from 'react-bootstrap';
 
 import { useSignup } from '../../hooks/useSignup';
 import styles from './signup.module.css';
@@ -16,15 +16,7 @@ const Signup = () => {
 	};
 
 	return (
-		<Container
-			desktop={{
-				only: true,
-				display: 'flex',
-				textAlign: 'center',
-			}}
-			widescreen={{ display: 'inline' }}
-			className={styles.container}
-		>
+		<Container className={styles.container}>
 			<h2>Sign Up</h2>
 			<Form onSubmit={handleSubmit}>
 				<Form.Label>
