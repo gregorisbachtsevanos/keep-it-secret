@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import 'bulma/css/bulma.min.css';
+import { Form, Button } from 'react-bulma-components';
+
 import { useCollection } from '../../hooks/useCollection';
 import { useFirestore } from '../../hooks/useFirestore';
 
@@ -28,25 +31,25 @@ const AccountList = () => {
 						</h4>
 						<button onClick={() => handleEvent(account.id)}>x</button>
 
-						<form onSubmit={(e) => handleSubmit(e, account.id)}>
-							<label>
-								<input
+						<Form.Field onSubmit={(e) => handleSubmit(e, account.id)}>
+							<Form.Label>
+								<Form.Input
 									type="email"
 									onChange={(e) => setName(e.target.value)}
 									value={name}
 									required
 								/>
-							</label>
-							<label>
-								<input
+							</Form.Label>
+							<Form.Label>
+								<Form.Input
 									type="password"
 									onChange={(e) => setPassword(e.target.value)}
 									value={password}
 									required
 								/>
-							</label>
-							<button>Update</button>
-						</form>
+							</Form.Label>
+							<Button>Update</Button>
+						</Form.Field>
 					</div>
 				);
 			})}
