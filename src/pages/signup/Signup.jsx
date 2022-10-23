@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSignup } from '../../hooks/useSignup';
 
-import { Button, Form, Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import styles from './signup.module.css';
 
 const Signup = () => {
@@ -16,7 +17,7 @@ const Signup = () => {
 	};
 
 	return (
-		<Container className={styles.container}>
+		<div className={styles.container}>
 			<h2>Sign Up</h2>
 			<Form onSubmit={handleSubmit}>
 				<Form.Label>
@@ -46,7 +47,7 @@ const Signup = () => {
 				<Button>Sign Up</Button>
 			</Form>
 			{error && <p>{error}</p>}
-		</Container>
+		</div>
 	);
 };
 
