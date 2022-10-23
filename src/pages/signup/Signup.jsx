@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Form, Container } from 'react-bootstrap';
-
 import { useSignup } from '../../hooks/useSignup';
+
+import { Button, Form, Container } from 'react-bootstrap';
 import styles from './signup.module.css';
 
 const Signup = () => {
