@@ -14,34 +14,28 @@ const Login = () => {
 		login(email, password);
 	};
 	return (
-		<Container
-			desktop={{
-				only: true,
-				display: 'flex',
-				textAlign: 'center',
-			}}
-			widescreen={{ display: 'inline' }}
-			className={styles.container}
-		>
+		<Container className={styles.container}>
 			<h2>Login</h2>
 			<Form onSubmit={handleSubmit}>
-				<Form.Label>
+				<Form.Label className='col-12'>
 					<Form.Control
 						type="email"
+						className={styles['input-container']}
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 						required
 					/>
 				</Form.Label>
-				<Form.Label>
+				<Form.Label className='col-12'>
 					<Form.Control
 						type="password"
+						className={styles['input-container']}
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 						required
 					/>
 				</Form.Label>
-				<Button>Login</Button>
+				<Button onClick={handleSubmit}>Login</Button>
 			</Form>
 			{error && <p>{error}</p>}
 		</Container>

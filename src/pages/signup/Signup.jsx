@@ -46,7 +46,7 @@ const Signup = () => {
 						required
 					/>
 				</Form.Label>
-				<Button>Sign Up</Button>
+				<Button className={styles.btn}>Sign Up</Button>
 			</Form>
 			{error && <p>{error}</p>}
 		</Container>

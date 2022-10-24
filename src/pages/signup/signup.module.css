@@ -6,3 +6,9 @@
    width: 35%!important;
    margin: auto;
 }
+
+.btn{
+   background-color: var(--secondary-color)!important;
+   color: var(--main-color)!important;
+   border: none!important;
+}

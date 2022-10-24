@@ -9,7 +9,6 @@ import Signup from './pages/signup/Signup';
 import { PrivateRouter } from './utils/PrivateRouter';
 import { PublicRouter } from './utils/PublicRouter';
 
-import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
