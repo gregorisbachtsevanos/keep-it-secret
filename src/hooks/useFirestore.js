@@ -60,7 +60,6 @@ export const useFirestore = (collection) => {
 		dispatch(action);
 	};
 
-	console.log(isCancelled);
 	const addDocument = async (doc) => {
 		dispatch({ type: 'IS_PENDING' });
 
