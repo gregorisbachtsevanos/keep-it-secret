@@ -19,7 +19,7 @@ const Signup = () => {
 		<Container className={styles.container}>
 			<h2>Sign Up</h2>
 			<Form onSubmit={handleSubmit}>
-				<Form.Label className='col-12'>
+				<Form.Label className="col-12">
 					<Form.Control
 						type="text"
 						className={styles['input-container']}
@@ -28,7 +28,7 @@ const Signup = () => {
 						required
 					/>
 				</Form.Label>
-				<Form.Label className='col-12'>
+				<Form.Label className="col-12">
 					<Form.Control
 						type="email"
 						className={styles['input-container']}
@@ -37,7 +37,7 @@ const Signup = () => {
 						required
 					/>
 				</Form.Label>
-				<Form.Label className='col-12'>
+				<Form.Label className="col-12">
 					<Form.Control
 						type="password"
 						className={styles['input-container']}
@@ -46,7 +46,9 @@ const Signup = () => {
 						required
 					/>
 				</Form.Label>
-				<Button className={styles.btn}>Sign Up</Button>
+				<Button onClick={handleSubmit} className='btn'>
+					Sign Up
+				</Button>
 			</Form>
 			{error && <p>{error}</p>}
 		</Container>

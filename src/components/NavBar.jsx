@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 
-import { Navbar, Button	 } from 'react-bootstrap';
-
+import { Navbar, Container, Button, Nav } from 'react-bootstrap';
 // import styles from './NavBar.module.css';
 
 const NavBar = ({ user }) => {
@@ -11,27 +10,29 @@ const NavBar = ({ user }) => {
 
 	return (
 		<Navbar>
-			<ul>
-				{user ? (
-					<li>
+			<Container>
+				<Nav className="d-flex">
+					<Navbar.Brand>
 						<Link to="/">LOGO</Link>
-					</li>
-				) : (
-					<>
-						<li>
-							<Link to="/login">Login</Link>
-						</li>
-						<li>
-							<Link to="/signup">Signup</Link>
-						</li>
-					</>
-				)}
-				{user && (
-					<li>
-						<Button onClick={logout}>Logout</Button>
-					</li>
-				)}
-			</ul>
+					</Navbar.Brand>
+				</Nav>
+				<Nav>
+					{!user ? (
+						<>
+							<Nav.Link>
+								<Link to="/login">Login</Link>
+							</Nav.Link>
+							<Nav.Link>
+								<Link to="/signup">Signup</Link>
+							</Nav.Link>
+						</>
+					) : (
+						<Nav.Link>
+							<Button onClick={logout}>Logout</Button>
+						</Nav.Link>
+					)}
+				</Nav>
+			</Container>
 		</Navbar>
 	);
 };

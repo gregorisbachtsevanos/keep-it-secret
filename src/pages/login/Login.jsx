@@ -17,7 +17,7 @@ const Login = () => {
 		<Container className={styles.container}>
 			<h2>Login</h2>
 			<Form onSubmit={handleSubmit}>
-				<Form.Label className='col-12'>
+				<Form.Label className="col-12">
 					<Form.Control
 						type="email"
 						className={styles['input-container']}
@@ -26,7 +26,7 @@ const Login = () => {
 						required
 					/>
 				</Form.Label>
-				<Form.Label className='col-12'>
+				<Form.Label className="col-12">
 					<Form.Control
 						type="password"
 						className={styles['input-container']}
@@ -35,7 +35,9 @@ const Login = () => {
 						required
 					/>
 				</Form.Label>
-				<Button onClick={handleSubmit}>Login</Button>
+				<Button onClick={handleSubmit} className='btn'>
+					Login
+				</Button>
 			</Form>
 			{error && <p>{error}</p>}
 		</Container>

@@ -22,3 +22,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn{
+  background-color: var(--secondary-color)!important;
+  color: var(--main-color)!important;
+  border: none!important;
+}

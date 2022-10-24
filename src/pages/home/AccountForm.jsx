@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
 
+import { Button, Form, Container } from 'react-bootstrap';
+
 export const AccountForm = () => {
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
@@ -8,31 +10,31 @@ export const AccountForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addDocument({name, password});
+		addDocument({ name, password });
 	};
 
 	return (
-		<div>
-			<h2>Add New Account</h2>
-			<form onSubmit={handleSubmit}>
-				<label>
-					<input
+		<Container className="col-10">
+			<h4>Add New Account</h4>
+			<Form>
+				<Form.Label className="col-12">
+					<Form.Control
 						type="email"
 						onChange={(e) => setName(e.target.value)}
 						value={name}
 						required
 					/>
-				</label>
-				<label>
-					<input
+				</Form.Label>
+				<Form.Label className="col-12">
+					<Form.Control
 						type="text"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 						required
 					/>
-				</label>
-				<button>Add</button>
-			</form>
-		</div>
+				</Form.Label>
+				<Button className='btn' onClick={handleSubmit}>Add</Button>
+			</Form>
+		</Container>
 	);
 };

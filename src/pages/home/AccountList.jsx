@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useCollection } from '../../hooks/useCollection';
 import { useFirestore } from '../../hooks/useFirestore';
 
-import { Form, Button } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
+
 const AccountList = () => {
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
@@ -19,19 +20,20 @@ const AccountList = () => {
 	};
 
 	return (
-		<div>
+		<div className='col-6'>
 			{accounts.map((account, index) => {
 				return (
-					<div key={index}>
-						<h4>
+					<Card key={index}>
+						<Card.Title></Card.Title>
+						<Card.Body>
 							<span>{account.name} </span>
 							<span>{account.password}</span>
-						</h4>
+						</Card.Body>
 						<button onClick={() => handleEvent(account.id)}>x</button>
 
-						<Form.Field onSubmit={(e) => handleSubmit(e, account.id)}>
+						<Form onSubmit={(e) => handleSubmit(e, account.id)}>
 							<Form.Label>
-								<Form.Input
+								<Form.Control
 									type="email"
 									onChange={(e) => setName(e.target.value)}
 									value={name}
@@ -39,16 +41,16 @@ const AccountList = () => {
 								/>
 							</Form.Label>
 							<Form.Label>
-								<Form.Input
+								<Form.Control
 									type="password"
 									onChange={(e) => setPassword(e.target.value)}
 									value={password}
 									required
 								/>
 							</Form.Label>
-							<Button>Update</Button>
-						</Form.Field>
-					</div>
+							<Button onClick={handleSubmit} className='btn'>Update</Button>
+						</Form>
+					</Card>
 				);
 			})}
 		</div>
