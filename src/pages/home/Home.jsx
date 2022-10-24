@@ -6,8 +6,10 @@ import { useCollection } from '../../hooks/useCollection';
 
 import { Container, Row } from 'react-bootstrap';
 import styles from './home.module.css'
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const Home = () => {
+	const { user } = useAuthContext();
 	const { isPending, error, accounts } = useCollection('Accounts');
 	return (
 		<Container className='p-5 my-3'>

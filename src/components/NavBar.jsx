@@ -11,10 +11,11 @@ const NavBar = ({ user }) => {
 	return (
 		<Navbar>
 			<Container className="d-flex">
-				<Nav className="align-items-center">
+				<Nav className="align-items-center d-block">
 					<Link className={styles['nav-item']} to="/">
 						LOGO
 					</Link>
+					<h5 className={styles['nav-item']}>{user.displayName}</h5>
 				</Nav>
 				<Nav className="align-items-center">
 					{!user ? (
