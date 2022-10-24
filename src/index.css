@@ -4,7 +4,7 @@
   --border-color: #16171b;
 }
 
-*{
+.form-title{
   color: var(--secondary-color)!important;
 }
 

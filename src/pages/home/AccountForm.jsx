@@ -15,8 +15,16 @@ export const AccountForm = () => {
 
 	return (
 		<Container className="col-10">
-			<h4>Add New Account</h4>
+			<h4 className='form-title'>Add New Account</h4>
 			<Form>
+				<Form.Label className="col-12">
+					<Form.Select aria-label="Default select">
+						<option disabled>Choose an account</option>
+						<option value="1">Google</option>
+						<option value="2">Outlook</option>
+						<option value="3">Mega</option>
+					</Form.Select>
+				</Form.Label>
 				<Form.Label className="col-12">
 					<Form.Control
 						type="email"
@@ -33,7 +41,9 @@ export const AccountForm = () => {
 						required
 					/>
 				</Form.Label>
-				<Button className='btn' onClick={handleSubmit}>Add</Button>
+				<Button className="btn" onClick={handleSubmit}>
+					Add
+				</Button>
 			</Form>
 		</Container>
 	);

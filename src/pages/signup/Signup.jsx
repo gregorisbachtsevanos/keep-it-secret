@@ -17,7 +17,7 @@ const Signup = () => {
 
 	return (
 		<Container className={styles.container}>
-			<h2>Sign Up</h2>
+			<h2 className='form-title'>Sign Up</h2>
 			<Form onSubmit={handleSubmit}>
 				<Form.Label className="col-12">
 					<Form.Control
