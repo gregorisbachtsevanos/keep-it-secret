@@ -11,6 +11,8 @@ export const AccountForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		addDocument({ name, password });
+		setName('')
+		setPassword('')
 	};
 
 	return (

@@ -24,7 +24,7 @@ export const useCollection = (collection) => {
 					});
 					setAccounts(result);
 					setIsPending(false);
-					setError(result);
+					// setError(result);
 				}
 			},
 			(err) => {

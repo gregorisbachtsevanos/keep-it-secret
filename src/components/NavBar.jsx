@@ -12,25 +12,25 @@ const NavBar = ({ user }) => {
 		<Navbar>
 			<Container className="d-flex">
 				<Nav className="align-items-center">
-					<Navbar.Brand className={styles['nav-item']}>
-						<Link to="/">LOGO</Link>
-					</Navbar.Brand>
+					<Link className={styles['nav-item']} to="/">
+						LOGO
+					</Link>
 				</Nav>
 				<Nav className="align-items-center">
 					{!user ? (
 						<>
-							<Nav.Link className={styles['nav-item']}>
-								<Link to="/login">Login</Link>
-							</Nav.Link>
-							<Nav.Link className={styles['nav-item']}>
-								<Link to="/signup">Signup</Link>
-							</Nav.Link>
+							<Link className={styles['nav-item']} to="/login">
+								Login
+							</Link>
+							<Link className={styles['nav-item']} to="/signup">
+								Signup
+							</Link>
 						</>
 					) : (
-						<Fragment >
-							<Nav.Link className={styles['nav-item']}>
-								<Link to='/'>Settings</Link>
-							</Nav.Link>
+						<Fragment>
+							<Link className={styles['nav-item']} to="/">
+								Settings
+							</Link>
 							<Nav.Link>
 								<Button onClick={logout}>Logout</Button>
 							</Nav.Link>
