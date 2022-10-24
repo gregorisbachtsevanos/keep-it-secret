@@ -14,7 +14,7 @@ const Home = () => {
 		<Row className='col-12'>
 			<div className='col-8'>
 			{isPending && <h4 className={styles.loading}><i>loading...</i></h4>}
-			{error ? <AccountList accounts={accounts}/> : <span className=''>{error}</span> }
+			{!error ? <AccountList accounts={accounts}/> : <h4 className={styles.error}>{error}</h4> }
 				
 			</div>
 			<div className='col-4'>

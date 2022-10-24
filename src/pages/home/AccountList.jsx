@@ -12,7 +12,6 @@ const AccountList = ({accounts}) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleEvent = (id) => {
-		console.log(1);
 		deleteDocument(id);
 	};
 
@@ -23,11 +22,11 @@ const AccountList = ({accounts}) => {
 					<h4 className="form-title">Accounts</h4>
 					{accounts.map((account, index) => {
 						return (
-							<div className="d-flex flex-column">
+							<div className="d-flex flex-column" key={index}>
 								<Card key={index} className="col-6">
 									<Card.Body className="d-flex">
 										<Card.Title>
-											<span class="material-symbols-outlined">
+											<span className="material-symbols-outlined">
 												mail
 											</span>
 										</Card.Title>

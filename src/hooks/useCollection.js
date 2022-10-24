@@ -15,13 +15,14 @@ export const useCollection = (collection) => {
 		const unsub = ref.onSnapshot(
 			(snapshot) => {
 				if (snapshot.empty) {
-					setError('No transaction to load');
+					setError('No accounts to load');
 					setIsPending(false);
 				} else {
 					let result = [];
 					snapshot.docs.forEach((doc) => {
 						result.push({ id: doc.id, ...doc.data() });
 					});
+					// console.log(result)
 					setAccounts(result);
 					setIsPending(false);
 					// setError(result);
