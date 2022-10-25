@@ -17,7 +17,7 @@ export const useCollection = (collection, _query) => {
 		const unsub = ref.onSnapshot(
 			(snapshot) => {
 				if (snapshot.empty) {
-					setError('No accounts to load');
+					setAccounts('No accounts to load');
 					setIsPending(false);
 				} else {
 					let result = [];
