@@ -10,7 +10,7 @@ const NavBar = ({ user }) => {
 
 	return (
 		<Navbar>
-			<Container className="d-flex">
+			<Container className="d-flex mb-5 mt-3">
 				<Nav className="align-items-center d-block">
 					<Link className={styles["nav-item"]} to="/">
 						LOGO

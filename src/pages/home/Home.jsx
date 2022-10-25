@@ -15,7 +15,7 @@ const Home = () => {
 		user.uid,
 	]);
 	return (
-		<Container className="p-5 my-3">
+		<Container className="p-1 my-3">
 			<Row className="col-12">
 				<div className="col-8">
 					{isPending && (
