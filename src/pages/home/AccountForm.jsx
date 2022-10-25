@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useFirestore } from '../../hooks/useFirestore';
+import React, { useState } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
 
-import { Button, Form, Container } from 'react-bootstrap';
+import { Button, Form, Container } from "react-bootstrap";
 
-export const AccountForm = () => {
-	const [name, setName] = useState('');
-	const [password, setPassword] = useState('');
-	const { addDocument } = useFirestore('Accounts');
+export const AccountForm = ({ uid }) => {
+	const [name, setName] = useState("");
+	const [password, setPassword] = useState("");
+	const { addDocument } = useFirestore("Accounts");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addDocument({ name, password });
-		setName('')
-		setPassword('')
+		addDocument({ uid, name, password });
+		setName("");
+		setPassword("");
 	};
 
 	return (
 		<Container className="col-10">
-			<h4 className='form-title'>Add New Account</h4>
+			<h4 className="form-title">Add New Account</h4>
 			<Form>
 				<Form.Label className="col-12">
 					<Form.Select aria-label="Default select">

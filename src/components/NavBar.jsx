@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { useLogout } from '../hooks/useLogout';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
-import { Navbar, Container, Button, Nav } from 'react-bootstrap';
-import styles from './NavBar.module.css';
+import { Navbar, Container, Button, Nav } from "react-bootstrap";
+import styles from "./NavBar.module.css";
 
 const NavBar = ({ user }) => {
 	const { logout } = useLogout();
@@ -12,30 +12,32 @@ const NavBar = ({ user }) => {
 		<Navbar>
 			<Container className="d-flex">
 				<Nav className="align-items-center d-block">
-					<Link className={styles['nav-item']} to="/">
+					<Link className={styles["nav-item"]} to="/">
 						LOGO
 					</Link>
-					<h5 className={styles['nav-item']}>{user.displayName}</h5>
+					<h5 className={styles["nav-item"]}>
+						{user && user.displayName}
+					</h5>
 				</Nav>
 				<Nav className="align-items-center">
 					{!user ? (
 						<>
-							<Link className={styles['nav-item']} to="/login">
+							<Link className={styles["nav-item"]} to="/login">
 								Login
 							</Link>
-							<Link className={styles['nav-item']} to="/signup">
+							<Link className={styles["nav-item"]} to="/signup">
 								Signup
 							</Link>
 						</>
 					) : (
-						<Fragment>
-							<Link className={styles['nav-item']} to="/">
+						<>
+							<Link className={styles["nav-item"]} to="/">
 								Settings
 							</Link>
 							<Nav.Link>
 								<Button onClick={logout}>Logout</Button>
 							</Nav.Link>
-						</Fragment>
+						</>
 					)}
 				</Nav>
 			</Container>

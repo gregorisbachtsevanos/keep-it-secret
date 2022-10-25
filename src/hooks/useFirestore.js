@@ -52,7 +52,7 @@ const firestoreReducer = (state, action) => {
 
 export const useFirestore = (collection) => {
 	const [isCancelled, setIsCancelled] = useState(false);
-	const [state, dispatch] = useReducer(firestoreReducer, initialState);
+	const [res, dispatch] = useReducer(firestoreReducer, initialState);
 
 	const ref = projectFirestore.collection(collection);
 
@@ -109,5 +109,5 @@ export const useFirestore = (collection) => {
 	//* 	};
 	//* });
 
-	return { addDocument, updateDocument, deleteDocument, ref };
+	return { addDocument, updateDocument, deleteDocument, res };
 };
