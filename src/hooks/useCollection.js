@@ -10,7 +10,6 @@ export const useCollection = (collection, _query) => {
 
 	useEffect(() => {
 		setIsPending(true);
-		setError(null);
 
 		let ref = projectFirestore.collection(collection)
 		if (query) ref = ref.where(...query).orderBy("createdAt", 'desc');
@@ -28,6 +27,7 @@ export const useCollection = (collection, _query) => {
 					// console.log(result)
 					setAccounts(result);
 					setIsPending(false);
+					setError(null);
 				}
 			},
 			(err) => {
@@ -37,6 +37,6 @@ export const useCollection = (collection, _query) => {
 		);
 		return () => unsub();
 	}, [collection, query]);
-
+	// console.log(accounts)
 	return { error, isPending, accounts };
 };

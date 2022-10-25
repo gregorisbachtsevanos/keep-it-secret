@@ -1,19 +1,18 @@
-import { Fragment, useState } from 'react';
-import { useCollection } from '../../hooks/useCollection';
-import { useFirestore } from '../../hooks/useFirestore';
+import { useState } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
 
-import Modal from './Modal';
+import Modal from "./Modal";
 
-import { Card, Button, Row, Container } from 'react-bootstrap';
+import { Card, Button, Row, Container } from "react-bootstrap";
 
-const AccountList = ({accounts}) => {
-	// const { accounts } = useCollection('Accounts');
-	const { deleteDocument } = useFirestore('Accounts');
+const AccountList = ({ accounts }) => {
+	const { deleteDocument, res } = useFirestore("Accounts");
 	const [showModal, setShowModal] = useState(false);
 
 	const handleEvent = (id) => {
 		deleteDocument(id);
 	};
+	console.log(res);
 
 	return (
 		<>
@@ -32,19 +31,24 @@ const AccountList = ({accounts}) => {
 										</Card.Title>
 										<Container className="d-flex justify-content-between">
 											<Row>
-												<span>{account.name}</span> <br />
+												<span>{account.name}</span>{" "}
+												<br />
 												<span>{account.password}</span>
 											</Row>
 											<div>
 												<span
 													className="material-symbols-outlined"
-													onClick={() => setShowModal(!showModal)}
+													onClick={() =>
+														setShowModal(!showModal)
+													}
 												>
 													edit
 												</span>
 												<span
 													className="material-symbols-outlined"
-													onClick={() => handleEvent(account.id)}
+													onClick={() =>
+														handleEvent(account.id)
+													}
 												>
 													delete
 												</span>

@@ -19,9 +19,7 @@ const Home = () => {
 			<Row className="col-12">
 				<div className="col-8">
 					{isPending && (
-						<h4 className={styles.loading}>
-							<i>loading...</i>
-						</h4>
+						<h4 className={styles.loading}>loading...</h4>
 					)}
 					{!error ? (
 						<AccountList accounts={accounts} />
