@@ -5,14 +5,20 @@ import { Button, Form, Container } from "react-bootstrap";
 
 export const AccountForm = ({ uid }) => {
 	const [name, setName] = useState("");
+	const [error, setError] = useState(false);
 	const [password, setPassword] = useState("");
 	const { addDocument } = useFirestore("Accounts");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addDocument({ uid, name, password });
-		setName("");
-		setPassword("");
+		if (name != "" && password != "") {
+			addDocument({ uid, name, password });
+			setName("");
+			setPassword("");
+			setError(false);
+		} else {
+			setError(true);
+		}
 	};
 
 	return (
@@ -20,8 +26,10 @@ export const AccountForm = ({ uid }) => {
 			<h4 className="form-title">Add New Account</h4>
 			<Form>
 				<Form.Label className="col-12">
-					<Form.Select aria-label="Default select">
-						<option disabled>Choose an account</option>
+					<Form.Select defaultValue={"DEFAULT"}>
+						<option value="DEFAULT" disabled>
+							Choose type of account
+						</option>
 						<option value="1">Google</option>
 						<option value="2">Outlook</option>
 						<option value="3">Mega</option>
@@ -43,9 +51,10 @@ export const AccountForm = ({ uid }) => {
 						required
 					/>
 				</Form.Label>
-				<Button className="btn" onClick={handleSubmit}>
+				<Button className="custom-btn" onClick={handleSubmit}>
 					Add
 				</Button>
+				{error && <p className="form-title p-2">Fill all the fields</p>}
 			</Form>
 		</Container>
 	);

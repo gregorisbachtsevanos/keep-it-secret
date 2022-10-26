@@ -29,7 +29,7 @@ code {
     monospace;
 }
 
-.btn{
+.custom-btn{
   background-color: var(--secondary-color)!important;
   color: var(--main-color)!important;
   border: none!important;

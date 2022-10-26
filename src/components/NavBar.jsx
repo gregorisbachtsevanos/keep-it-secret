@@ -35,7 +35,9 @@ const NavBar = ({ user }) => {
 								Settings
 							</Link>
 							<Nav.Link>
-								<Button onClick={logout}>Logout</Button>
+								<Button className="custom-btn" onClick={logout}>
+									Logout
+								</Button>
 							</Nav.Link>
 						</>
 					)}

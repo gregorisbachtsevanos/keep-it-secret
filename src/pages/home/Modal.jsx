@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import { useFirestore } from '../../hooks/useFirestore';
+import { useState } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
 
-import { Card, Form, Button } from 'react-bootstrap';
-import styles from './home.module.css'
+import { Card, Form, Button } from "react-bootstrap";
+import styles from "./home.module.css";
 
 const Modal = ({ account }) => {
-	const [name, setName] = useState('');
-	const [password, setPassword] = useState('');
-	const { updateDocument } = useFirestore('Accounts');
+	const [name, setName] = useState(account.name);
+	const [password, setPassword] = useState(account.password);
+	const { updateDocument } = useFirestore("Accounts");
 
 	const handleSubmit = (e, id) => {
 		e.preventDefault();
+		e.target.closest(".modal-container").classList.add("d-none");
+		return console.log(id, { name, password });
 		updateDocument(id, { name, password });
 	};
 
 	return (
-		<Card className={styles['model-container']}>
+		<Card className="d-none modal-container">
 			<Form onSubmit={(e) => handleSubmit(e, account.id)}>
 				<Form.Label>
 					<Form.Control
@@ -27,15 +29,13 @@ const Modal = ({ account }) => {
 				</Form.Label>
 				<Form.Label>
 					<Form.Control
-						type="password"
+						type="text"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 						required
 					/>
 				</Form.Label>
-				<Button onClick={handleSubmit} className="btn">
-					Update
-				</Button>
+				<button className="custom-btn">Update</button>
 			</Form>
 		</Card>
 	);
