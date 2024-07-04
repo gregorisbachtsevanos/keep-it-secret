@@ -1,19 +1,19 @@
 # Keep-It-Secret
 ##Keep-It-Secret is a secure and user-friendly password manager application built with React and Firebase. It helps you store, manage, and retrieve your passwords safely.
 
-Table of Contents
-Features
-Installation
-Usage
-Project Structure
-Contributing
-License
-Features
-User Authentication with Firebase
-Securely store passwords with encryption
-Generate strong passwords
-Categorize and organize passwords
-Responsive design
+Table of Contents\
+Features\
+Installation\
+Usage\
+Project Structure\
+Contributing\
+License\
+Features\
+User Authentication with Firebase\
+Securely store passwords with encryption\
+Generate strong passwords\
+Categorize and organize passwords\
+Responsive design\
 Installation
 To get started with Keep-It-Secret, follow these steps:
 
